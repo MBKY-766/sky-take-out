@@ -240,7 +240,7 @@ public class OrderServiceImpl implements OrderService {
         orders.setId(ordersDB.getId());
 
         //订单处于待接单状态下取消，需要进行退款
-        if (orders.getStatus().equals(Orders.TO_BE_CONFIRMED)) {
+        if (ordersDB.getStatus().equals(Orders.TO_BE_CONFIRMED)) {
             //调用微信退款接口
 //            weChatPayUtil.refund(
 //                    ordersDB.getNumber(), //商户订单号
