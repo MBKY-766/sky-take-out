@@ -27,6 +27,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class OrderServiceImpl implements OrderService {
@@ -255,5 +256,26 @@ public class OrderServiceImpl implements OrderService {
         orders.setCancelReason("用户取消");
         orders.setCancelTime(LocalDateTime.now());
         orderMapper.update(orders);
+    }
+
+    @Override
+    public void repetition(Long id) {
+        //查询当前用户id
+        Long userId = BaseContext.getCurrentId();
+        //查询订单详情
+        List<OrderDetail> orderDetailList = orderDetailMapper.getByOrderId(id);
+        //将菜品/套餐重新添加到购物车中---将订单详情对象转换为购物车对象
+        List<ShoppingCart> shoppingCartList = orderDetailList.stream().map(orderDetail -> {
+            ShoppingCart shoppingCart = new ShoppingCart();
+            BeanUtils.copyProperties(orderDetail, shoppingCart,"id");
+            shoppingCart.setUserId(userId);
+            return shoppingCart;
+        }).collect(Collectors.toList());
+
+        //将购物车对象批量添加到数据库
+        shoppingCartMapper.insertBatch(shoppingCartList);
+
+
+
     }
 }
