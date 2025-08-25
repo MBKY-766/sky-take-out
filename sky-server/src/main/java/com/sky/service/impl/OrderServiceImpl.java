@@ -260,6 +260,11 @@ public class OrderServiceImpl implements OrderService {
         orderMapper.update(orders);
     }
 
+    /**
+     * 再来一单
+     *
+     * @param id
+     */
     @Override
     public void repetition(Long id) {
         //查询当前用户id
