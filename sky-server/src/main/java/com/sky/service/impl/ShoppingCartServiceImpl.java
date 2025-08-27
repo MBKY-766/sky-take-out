@@ -45,6 +45,7 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
         if (list.size() > 0 && list != null) {
             ShoppingCart shoppingCart1 = list.get(0);
             shoppingCart1.setNumber(shoppingCart1.getNumber() + 1);
+            //更新价格
             shoppingCartMapper.updateNumberById(shoppingCart1);
         } else {
             //如果不存在，那么就直接添加到购物车中
@@ -117,8 +118,5 @@ public class ShoppingCartServiceImpl implements ShoppingCartService {
                 shoppingCartMapper.updateNumberById(shoppingCart);
             }
         }
-
-
-
     }
 }
