@@ -1,7 +1,7 @@
 # sky-take-out
-苍穹外卖-效果展示
+#苍穹外卖-效果展示
 
-管理端：
+##管理端：
 
 工作台：
 <img width="1420" height="805" alt="工作台" src="https://github.com/user-attachments/assets/cd8eb487-d7b1-4689-a904-b3dc4ba280f5" />
@@ -18,7 +18,7 @@
 员工管理：
 <img width="1414" height="807" alt="员工管理" src="https://github.com/user-attachments/assets/c8aaf102-c891-4d20-b552-87682e8f1384" />
 
-用户端-微信小程序：
+##用户端-微信小程序：
 
 首页：
 <img width="1222" height="814" alt="首页" src="https://github.com/user-attachments/assets/f2f258be-c886-4e34-83de-11d4acb1449f" />
